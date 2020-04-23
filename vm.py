@@ -25,15 +25,14 @@ class VendingMachine:
         for item in self.products:
             if item.qty ==0:
                 self.products.remove(item)
-        heading = '{} {} {} \n'
-        print(heading.format('Item', 'Price', 'Quantity'))
+        print('Item', 'Price', 'Quantity')
         for item in self.products:
-            print(heading.format(item.name,item.price,item.qty))
+            print(item.name,item.price,item.qty)
             
-    def  has_products(self,wanted):
+    def  has_products(self,required):
         flag = False
         for item in self.products:
-            if item.name == wanted:
+            if item.name == required:
                 flag = True
                 break
         return flag
