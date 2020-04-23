@@ -37,10 +37,10 @@ class VendingMachine:
                 break
         return flag
 
-    def get_item(self, wanted):
+    def get_item(self, required):
         a = None
         for item in self.products:
-            if item.name == wanted:
+            if item.name == required:
                 a = item
                 break
         return a
@@ -74,9 +74,9 @@ class VendingMachine:
 
 def vending():
     vm = VendingMachine()
-    item1 = Product('Coke',25,10)
-    item2 = Product('Pepsi',35,10)
-    item3 = Product('Soda',45,10)
+    item1 = Product('coke',25,10)
+    item2 = Product('pepsi',35,10)
+    item3 = Product('soda',45,10)
     vm.add_product(item1)
     vm.add_product(item2)
     vm.add_product(item3)
@@ -92,8 +92,8 @@ def vending():
             while purchase == True:
                 vm.display()
                 sel = input('Enter product name: ')
-                if vm.has_products(sel):
-                    item = vm.get_item(sel)
+                if vm.has_products(sel.lower()):
+                    item = vm.get_item(sel.lower())
                     vm.insert_money(item)
                     vm.buy_product(item)
 
